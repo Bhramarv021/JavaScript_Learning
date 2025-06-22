@@ -36,6 +36,27 @@ const calculate = (logic, r) => {
     return d;
 }
 
+Array.prototype.calculationOnRadius = function (logic) {
+    const output = [];
+    this.forEach(element => {
+        output.push(logic(element));
+    });
+    console.log("this : ",this);
+    // for (let i = 0; i < this.length; i++){
+    //     console.log("i : ",i);
+        
+    //     output.push(logic(this[i]));
+    // }
+    return output;
+}
+
 console.log("Result is : ",calculate(diameter, radius));
 console.log("Result is : ",calculate(circumference, radius));
 console.log("Result is : ",calculate(area, radius));
+
+// Another way
+console.log("Area on radius is : ",radius.map(area));
+console.log("Circumference on radius is : ",radius.map(circumference));
+
+//Declaring method using protoype on Array
+console.log("Area is : ",radius.calculationOnRadius(area));
